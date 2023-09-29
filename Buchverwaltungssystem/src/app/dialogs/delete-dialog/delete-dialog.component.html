@@ -1,0 +1,36 @@
+<div id="updateForm">
+
+    <h1 id="deleteBookTitle">Buch löschen</h1>
+    <form [formGroup]="deleteForm" (ngSubmit)="onSubmit()" class="myform">
+
+        <div class="myInputs">
+            <mat-form-field class="example-full-width">
+                <mat-label class="formInput">Titel</mat-label>
+                <input class="formInput" matInput formControlName="title">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label class="formInput">Autor</mat-label>
+                <input class="formInput" matInput formControlName="author">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label class="formInput">ISBN</mat-label>
+                <input class="formInput" matInput formControlName="isbn">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label class="formInput">Seitenanzahl</mat-label>
+                <input class="formInput" matInput formControlName="pages">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label class="formInput">Zusammenfassung</mat-label>
+                <input class="formInput" matInput formControlName="summary">
+            </mat-form-field>
+        </div>
+
+        <button class="actionButtons" type="button" mat-dialog-close mat-raised-button color="warn">Abbrechen</button>
+        <button class="actionButtons" type="submit" mat-raised-button color="accent">Löschen</button>
+    </form>
+</div>
