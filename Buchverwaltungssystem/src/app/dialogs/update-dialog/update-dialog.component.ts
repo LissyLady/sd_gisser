@@ -1,8 +1,15 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Book } from 'src/app/interfaces/book';
 import { BookService } from 'src/app/services/books.service';
+
+function isNumber(control: AbstractControl): { [key: string]: boolean } | null {
+  if (isNaN(control.value)) {
+    return { 'notANumber': true };
+  }
+  return null;
+}
 
 @Component({
   selector: 'app-update-dialog',
@@ -17,7 +24,7 @@ export class UpdateDialogComponent implements OnInit {
     title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     author: new FormControl('', [Validators.required, Validators.maxLength(50)]),
     isbn: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-    pages: new FormControl(0, [Validators.required, Validators.maxLength(2000)]),
+    pages: new FormControl(0, [Validators.required, Validators.maxLength(2000), isNumber]),
     summary: new FormControl('', [Validators.required, Validators.maxLength(200)]),
   });
 
