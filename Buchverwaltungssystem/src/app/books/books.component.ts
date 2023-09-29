@@ -16,10 +16,9 @@ export class BooksComponent implements OnInit {
 
   dataSource = new MatTableDataSource<Book>();
 
-  columnsToDisplay = ['Title', 'Autor', 'ISBN', 'Seitenanzahl', 'Zusammenfassung', 'Bearbeiten', 'Delete'];
+  columnsToDisplay = ['Titel', 'Autor', 'ISBN', 'Seitenanzahl', 'Zusammenfassung', 'Edit', 'Delete'];
 
   constructor(private booksService: BookService, private dialog: MatDialog) {
-
   }
 
   ngOnInit() {
@@ -51,5 +50,4 @@ export class BooksComponent implements OnInit {
   updateDataSource(dataArray: Book[]) {
     this.dataSource.connect().next(dataArray);
   }
-
 }
